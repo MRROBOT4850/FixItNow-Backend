@@ -1,0 +1,80 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build outputs
+dist/
+build/
+
+# Coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+.nyc_output/
+.parcel-cache/
+
+# Uploads (if stored locally instead of Cloudinary)
+uploads/
+public/uploads/
+
+# MongoDB local database dump
+dump/
+
+# PM2 logs
+.pmm/
+
+# Swagger auto-generated
+swagger.json
+swagger-output.json
+
+# TypeScript build folders (if using TS)
+*.tsbuildinfo
+
+# Locking files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Docker
+docker-data/
+
+.env
+.env.local
+*.env
+
