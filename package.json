@@ -23,6 +23,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "yaml": "^2.8.1",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "cors": "^2.8.5"
   }
 }
