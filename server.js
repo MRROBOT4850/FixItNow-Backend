@@ -6,6 +6,7 @@ const searchRoutes = require('./routes/search');
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const YAML = require('yamljs');
+const cors = require('cors');
 
 const app = express();
 const options = {
@@ -28,6 +29,12 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 app.use(express.json());
+app.use(cors({
+  origin: '*', // allows requests from any domain
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'], // allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // allowed headers
+}));
+
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
