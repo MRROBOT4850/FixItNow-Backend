@@ -22,15 +22,23 @@ jobs:
 
     - name: Build Docker image
       run: |
-        IMAGE=${{ secrets.ACR_NAME }}.azurecr.io/fixitnow-backend:${{ github.sha }}
-        echo "IMAGE=$IMAGE" >> $GITHUB_ENV
-        docker build -t $IMAGE .
+        # SHA-tagged image
+        IMAGE_SHA=${{ secrets.ACR_NAME }}.azurecr.io/fixitnow-backend:${{ github.sha }}
+        echo "IMAGE_SHA=$IMAGE_SHA" >> $GITHUB_ENV
+        docker build -t $IMAGE_SHA .
 
-    - name: Push Docker image
-      run: docker push $IMAGE
+        # Tag as latest
+        IMAGE_LATEST=${{ secrets.ACR_NAME }}.azurecr.io/fixitnow-backend:latest
+        echo "IMAGE_LATEST=$IMAGE_LATEST" >> $GITHUB_ENV
+        docker tag $IMAGE_SHA $IMAGE_LATEST
+
+    - name: Push Docker images
+      run: |
+        docker push $IMAGE_SHA
+        docker push $IMAGE_LATEST
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-        images: ${{ env.IMAGE }}
+        images: ${{ env.IMAGE_LATEST }}
