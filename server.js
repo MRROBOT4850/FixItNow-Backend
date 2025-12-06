@@ -57,7 +57,7 @@ app.use('/search', searchRoutes);
 app.use('/user',user)
 app.get("/health",(req,res)=>{
     res.json({
-      "health":"Bdiya hai hai "
+      "health":"Bdiya hai hai azure pe "
     })
 })
 app.listen(process.env.PORT|| 3000, "0.0.0.0",() => console.log(`Server running on port ${process.env.PORT}`));
